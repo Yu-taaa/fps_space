@@ -87,8 +87,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //しゃがむ機能の実装
             if (Input.GetKey(KeyCode.C))
             {
-                transform.position = new Vector3(0, 30f, 0);
-            }
+
+                    transform.position = new Vector3(transform.position.x, 4f, transform.position.z);
+                }
+
         }
 
 
