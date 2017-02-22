@@ -82,12 +82,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-			//しゃがむ機能の実装
+//			//しゃがむ機能の実装
 //			if (Input.GetKey(KeyCode.C))
 //            {
-//				transform.position.y =
+//				transform.position.y = 
 //             }
-				
+//				
         }
 
 
