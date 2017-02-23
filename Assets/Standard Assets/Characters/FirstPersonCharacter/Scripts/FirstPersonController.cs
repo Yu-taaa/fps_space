@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
@@ -11,6 +12,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
     public class FirstPersonController : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
+        [SerializeField] private bool m_IsSquating;
+        [SerializeField] private float m_SquatSpeed;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
@@ -84,13 +87,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
+
             //しゃがむ機能の実装
             if (Input.GetKey(KeyCode.C))
             {
-
-                    transform.position = new Vector3(transform.position.x, 4f, transform.position.z);
-                }
-
+                transform.position = new Vector3(transform.position.x, 4f, transform.position.z);
+                //gameObject.GetComponent<FirstPersonController>().m_WalkSpeed = 2f;
+            }
+            else
+            {
+                //gameObject.GetComponent<FirstPersonController>().m_WalkSpeed = 5f;
+            }
         }
 
 
@@ -159,7 +166,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                 (speed * (m_IsWalking ? 1f : m_RunstepLenghten))) *
                                Time.fixedDeltaTime;
             }
-
             if (!(m_StepCycle > m_NextStep))
             {
                 return;
@@ -180,6 +186,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // pick & play a random footstep sound from the array,
             // excluding sound at index 0
             int n = Random.Range(1, m_FootstepSounds.Length);
+
+
             m_AudioSource.clip = m_FootstepSounds[n];
             m_AudioSource.PlayOneShot(m_AudioSource.clip);
             // move picked sound to index 0 so it's not picked next time
@@ -224,9 +232,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+            m_IsSquating = Input.GetKey(KeyCode.C);
 #endif
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            //m_IsWalkingがtrueの場合は、m_WalkSpeedでそれ以外の場合はm_RunSpeedを使用してる
+            //左のShftキーが押されていなかったら走る
+            speed = m_IsSquating ? m_SquatSpeed : m_WalkSpeed;
+
+
+
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:
