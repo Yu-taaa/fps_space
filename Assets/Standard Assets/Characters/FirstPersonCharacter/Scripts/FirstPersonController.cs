@@ -87,16 +87,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-
             //しゃがむ機能の実装
             if (Input.GetKey(KeyCode.C))
             {
                 transform.position = new Vector3(transform.position.x, 4f, transform.position.z);
                 //gameObject.GetComponent<FirstPersonController>().m_WalkSpeed = 2f;
-            }
-            else
-            {
-                //gameObject.GetComponent<FirstPersonController>().m_WalkSpeed = 5f;
             }
         }
 
@@ -165,6 +160,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_StepCycle += (m_CharacterController.velocity.magnitude +
                                 (speed * (m_IsWalking ? 1f : m_RunstepLenghten))) *
                                Time.fixedDeltaTime;
+
             }
             if (!(m_StepCycle > m_NextStep))
             {
@@ -186,7 +182,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // pick & play a random footstep sound from the array,
             // excluding sound at index 0
             int n = Random.Range(1, m_FootstepSounds.Length);
-
 
             m_AudioSource.clip = m_FootstepSounds[n];
             m_AudioSource.PlayOneShot(m_AudioSource.clip);
@@ -239,8 +234,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //m_IsWalkingがtrueの場合は、m_WalkSpeedでそれ以外の場合はm_RunSpeedを使用してる
             //左のShftキーが押されていなかったら走る
             speed = m_IsSquating ? m_SquatSpeed : m_WalkSpeed;
-
-
 
             m_Input = new Vector2(horizontal, vertical);
 
