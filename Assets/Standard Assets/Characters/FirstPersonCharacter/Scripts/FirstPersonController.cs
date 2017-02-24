@@ -231,7 +231,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
             //m_IsWalkingがtrueの場合は、m_WalkSpeedでそれ以外の場合はm_RunSpeedを使用してる
-            //左のShftキーが押されていなかったら走る
+            //左のShftキーが押されていなかったら通常スピードで歩き、押されたときは走る
             speed = m_IsSquating ? m_SquatSpeed : m_WalkSpeed;
 
             m_Input = new Vector2(horizontal, vertical);
