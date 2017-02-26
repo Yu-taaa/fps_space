@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : MonoBehaviour
+{
+    private int bullets = 30;
+    private int bullesbox = 150;
 
 	// Use this for initialization
 	void Start () {
