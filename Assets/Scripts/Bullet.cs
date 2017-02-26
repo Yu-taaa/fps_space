@@ -4,16 +4,33 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private int bullets = 30;
-    private int bullesbox = 150;
+    public int _bullets = 30;
+    public int _bulletsBox = 150;
+    private int _addbullets;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void BulletsReduction()
+    {
+        _bullets -= 1;
+    }
+
+    public void BulletsAmount()
+    {
+        _addbullets = 30 - _bullets;
+        if (_bullets >= 30)
+        {
+            return;
+        }
+
+        if ( _bulletsBox > _addbullets)
+        {
+            _bullets += _addbullets;
+            _bulletsBox -= _addbullets;
+        }
+        else
+        {
+            _bullets += _bulletsBox;
+            _bulletsBox = 0;
+        }
+    }
 }
+

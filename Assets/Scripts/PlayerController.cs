@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] AudioSource _audioSource;
+    AudioSource _audioSource;
     [SerializeField] private GameObject _target;
-    [SerializeField] private int _bullets = 30;
-    [SerializeField] private int _bulletsBox = 150;
+    [SerializeField] private Bullet Bullet;
+    private int _useBullets;
+    private int hoge;
+
     private float coolTime = 0.0f;
 
     private GameObject _Spark;
@@ -22,11 +24,23 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         coolTime += Time.deltaTime;
+        Bullet = gameObject.GetComponent<Bullet>();
+        _useBullets = Bullet._bullets;
 
-        if (Input.GetButtonDown("Fire1") && coolTime > 0.5f)
+        if (Input.GetButtonDown("Fire1") && coolTime > 0.5f && _useBullets != 0)
         {
+            print(_useBullets);
+            Bullet.BulletsReduction();
             _audioSource.Play();
             fire();
+        }
+        if (Input.GetKey(KeyCode.R))
+        {
+            Bullet.BulletsAmount();
+            hoge = Bullet._bulletsBox;
+            print(hoge);
+
+
         }
     }
 
