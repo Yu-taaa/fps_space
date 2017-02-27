@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc574d90-db75-4fad-b856-5ab0661ea9d7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/GunController.cs" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Scripts/test.cs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Scripts/test.cs.meta" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs.meta" afterPath="$PROJECT_DIR$/Assets/Scripts/GunController.cs.meta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.FPS_Space/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.FPS_Space/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
-    </list>
+    <list default="true" id="fc574d90-db75-4fad-b856-5ab0661ea9d7" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -233,12 +224,12 @@
       <workItem from="1487778696195" duration="5017000" />
       <workItem from="1487785852635" duration="9968000" />
       <workItem from="1488103936536" duration="119000" />
-      <workItem from="1488104062554" duration="25324000" />
+      <workItem from="1488104062554" duration="25375000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41009000" />
+    <option name="totallyTimeSpent" value="41060000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
