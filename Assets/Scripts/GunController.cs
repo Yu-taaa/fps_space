@@ -8,8 +8,12 @@ public class GunController : MonoBehaviour
     public int BulletsBox = 150;
     private int _addbullets;
     private GameObject _spark;
+    private GameObject _sparkMuzzle;
     private AudioSource _audioSource;
+    [SerializeField] AudioClip impact;
     [SerializeField] private GameObject _target;
+    [SerializeField] private GameObject _gun;
+    [SerializeField] private GameObject _muzzle;
 
 
     public void shoot()
@@ -20,7 +24,7 @@ public class GunController : MonoBehaviour
         }
         _audioSource = gameObject.GetComponent<AudioSource>();
         BulletsReduction();
-        _audioSource.Play();
+        _audioSource.PlayOneShot(impact);
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
         if (!Physics.Raycast(ray, out hit))
@@ -29,8 +33,15 @@ public class GunController : MonoBehaviour
         }
 
         _spark = (GameObject) Instantiate(_target);
+        _sparkMuzzle = (GameObject) Instantiate(_gun);
+
+
         _spark.transform.position = hit.point;
+        _sparkMuzzle.transform.position = _muzzle.transform.position;
+
+
         Destroy(_spark, 0.3f);
+        Destroy(_sparkMuzzle, 0.2f);
     }
 
     public void BulletsReduction()
