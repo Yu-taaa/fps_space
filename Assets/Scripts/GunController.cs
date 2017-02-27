@@ -8,8 +8,8 @@ public class GunController : MonoBehaviour
     public int BulletsBox = 150;
     private int _addbullets;
     private GameObject _spark;
-    [SerializeField] private GameObject _target;
     private AudioSource _audioSource;
+    [SerializeField] private GameObject _target;
 
 
     public void shoot()
@@ -33,12 +33,10 @@ public class GunController : MonoBehaviour
         Destroy(_spark, 0.3f);
     }
 
-
     public void BulletsReduction()
     {
         Bullets -= 1;
     }
-
 
     public void BulletsAmount()
     {
