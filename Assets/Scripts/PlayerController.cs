@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GunController Bullet;
-    private int _useBullets;
+
 
     private float coolTime = 0.0f;
 
@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     {
         coolTime += Time.deltaTime;
 
-        _useBullets = Bullet.Bullets;
 
         if (Input.GetButtonDown("Fire1") && coolTime > 0.5f)
         {
