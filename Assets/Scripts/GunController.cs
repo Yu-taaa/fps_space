@@ -12,8 +12,11 @@ public class GunController : MonoBehaviour
     private GameObject _sparkMuzzle;
     private AudioSource _audioSource;
     private String _targetTag;
+    private RaycastHit hit;
+    private Vector2 _hitPoint;
     [SerializeField] AudioClip impact;
     [SerializeField] private Target Target;
+    [SerializeField] private Score Score;
     [SerializeField] private GameObject _target;
     [SerializeField] private GameObject _gun;
     [SerializeField] private GameObject _muzzle;
@@ -29,7 +32,7 @@ public class GunController : MonoBehaviour
         BulletsReduction();
         _audioSource.PlayOneShot(impact);
         Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
+
         if (!Physics.Raycast(ray, out hit))
         {
             return;
@@ -37,13 +40,14 @@ public class GunController : MonoBehaviour
 
         _targetTag = hit.collider.tag;
 
-        if (_targetTag != null)
+        if (_targetTag == "target")
         {
             Target.HitTarget();
+            _hitPoint = hit.point;
+            Score.ScoreCount(_hitPoint);
         }
 
         _spark = (GameObject) Instantiate(_target);
-
         _sparkMuzzle = (GameObject) Instantiate(_gun);
         _spark.transform.position = hit.point - ray.direction; //疑問１：hit.point.normalized * 0.9f だとエフェクトが表示されない
         _sparkMuzzle.transform.position = _muzzle.transform.position;

@@ -19,7 +19,6 @@ public class Target : MonoBehaviour
     {
     }
 
-
     public void HitTarget()
     {
         if (_hp > 0)
@@ -30,7 +29,7 @@ public class Target : MonoBehaviour
         else if (_hp == 0)
         {
             _anim.SetBool("IsFall", true);
-            Invoke("UpTarget", 3.0f);
+            Invoke("UpTarget", 1.0f);
         }
     }
 
