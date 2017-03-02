@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,9 @@ public class GunController : MonoBehaviour
     private GameObject _spark;
     private GameObject _sparkMuzzle;
     private AudioSource _audioSource;
+    private String _targetTag;
     [SerializeField] AudioClip impact;
+    [SerializeField] private Target Target;
     [SerializeField] private GameObject _target;
     [SerializeField] private GameObject _gun;
     [SerializeField] private GameObject _muzzle;
@@ -32,17 +35,17 @@ public class GunController : MonoBehaviour
             return;
         }
 
+        _targetTag = hit.collider.tag;
+
+        if (_targetTag != null)
+        {
+            Target.HitTarget();
+        }
+
         _spark = (GameObject) Instantiate(_target);
+
         _sparkMuzzle = (GameObject) Instantiate(_gun);
-
-        var koko = hit.point;
-        print(koko);
-//疑問１：hit.point.normalized * 0.9f だとエフェクトが表示されない
-        //rayの衝突地点の座標から
-        _spark.transform.position = hit.point - ray.direction;
-
-        print(_spark.transform.position);
-
+        _spark.transform.position = hit.point - ray.direction; //疑問１：hit.point.normalized * 0.9f だとエフェクトが表示されない
         _sparkMuzzle.transform.position = _muzzle.transform.position;
 
 

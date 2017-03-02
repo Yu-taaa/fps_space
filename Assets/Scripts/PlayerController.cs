@@ -19,9 +19,11 @@ public class PlayerController : MonoBehaviour
     {
         coolTime += Time.deltaTime;
 
+
         if (Input.GetButtonDown("Fire1") && coolTime > 0.5f)
         {
             Bullet.shoot();
+
         }
         if (Input.GetKey(KeyCode.R))
         {
