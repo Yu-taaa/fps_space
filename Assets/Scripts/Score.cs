@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
 {
     private int score = 0;
     private float _distance;
-    private Vector2 _headMarkerPosition;
+    private Vector3 _headMarkerPosition;
     [SerializeField] private GameObject _headMarker;
 
 
@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
         print(score);
     }
 
-    int Count(float distance)
+     private int Count(float distance)
     {
         if (distance < 0.1f)
         {

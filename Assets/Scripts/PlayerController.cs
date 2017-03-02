@@ -19,14 +19,15 @@ public class PlayerController : MonoBehaviour
     {
         coolTime += Time.deltaTime;
 
-
         if (Input.GetButtonDown("Fire1") && coolTime > 0.5f)
         {
             Bullet.shoot();
+            coolTime = 0.0f;
         }
         if (Input.GetKey(KeyCode.R))
         {
             Bullet.BulletsAmount();
         }
+
     }
 }

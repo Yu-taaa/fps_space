@@ -14,11 +14,6 @@ public class Target : MonoBehaviour
         _anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void HitTarget()
     {
         if (_hp > 0)
@@ -29,10 +24,9 @@ public class Target : MonoBehaviour
         else if (_hp == 0)
         {
             _anim.SetBool("IsFall", true);
-            Invoke("UpTarget", 1.0f);
+            Invoke("UpTarget", 10.0f);
         }
     }
-
 
     void UpTarget()
     {
