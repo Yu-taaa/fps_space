@@ -13,7 +13,6 @@ public class Score : MonoBehaviour
     private Vector3 _headMarkerPosition;
     [SerializeField] private GameObject _headMarker;
 
-
     public void ScoreCount(Vector3 bulletHitPoint) //rayのあたった位置
     {
         _headMarkerPosition = _headMarker.transform.position;

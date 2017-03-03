@@ -13,7 +13,6 @@ public class Ui : MonoBehaviour
     [SerializeField] private Text _bulletText;
     [SerializeField] private Score _score;
 
-
     // Use this for initialization
     void Start()
     {
