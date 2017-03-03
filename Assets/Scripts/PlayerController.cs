@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GunController Bullet;
     private float coolTime = 0.0f;
-
+    private bool _isSnipe;
+    [SerializeField] private GunController Bullet;
+    [SerializeField] private float _cameraPosition;
+    [SerializeField] private Camera _camera;
+    [SerializeField] private GameObject _snipe;
 
     // Use this for initialization
     void Start()
     {
         Bullet = gameObject.GetComponent<GunController>();
+        _cameraPosition = _camera.fieldOfView;
+        _isSnipe = false;
+        _snipe.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,5 +35,21 @@ public class PlayerController : MonoBehaviour
             Bullet.BulletsAmount();
         }
 
+        if (!Input.GetMouseButton(1))
+        {
+            return;
+        }
+        if (_isSnipe == false)
+        {
+            _isSnipe = true;
+            _snipe.SetActive(true);
+            _camera.fieldOfView = 20.0f;
+        }
+        else
+        {
+            _isSnipe = false;
+            _snipe.SetActive(false);
+            _camera.fieldOfView = 40.0f;
+        }
     }
 }
