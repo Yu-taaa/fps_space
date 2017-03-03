@@ -18,7 +18,6 @@ public class Target : MonoBehaviour
     {
         if (_hp > 0)
         {
-            print(_hp);
             _hp--;
         }
         else if (_hp == 0)
