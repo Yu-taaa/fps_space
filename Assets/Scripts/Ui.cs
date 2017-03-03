@@ -10,10 +10,7 @@ public class Ui : MonoBehaviour
     [SerializeField] private Text _timeText;
     [SerializeField] private Text _ptText;
     [SerializeField] private Text _bulletboxText;
-
     [SerializeField] private Text _bulletText;
-
-    // [SerializeField] private Score _headMarker;
     [SerializeField] private Score _score;
 
 

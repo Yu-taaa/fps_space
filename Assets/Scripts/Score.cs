@@ -18,9 +18,7 @@ public class Score : MonoBehaviour
     {
         _headMarkerPosition = _headMarker.transform.position;
         _distance = Vector2.Distance(bulletHitPoint, _headMarkerPosition);
-        // Count(_distance);
         _scorePoint = _scorePoint + Count(_distance);
-        //print(_scorePoint);
     }
 
     private int Count(float distance)
