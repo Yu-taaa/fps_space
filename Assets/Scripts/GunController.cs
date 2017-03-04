@@ -50,6 +50,7 @@ public class GunController : MonoBehaviour
         _spark = (GameObject) Instantiate(_target);
         _sparkMuzzle = (GameObject) Instantiate(_gun);
         _spark.transform.position = hit.point - ray.direction; //疑問１：hit.point.normalized * 0.9f だとエフェクトが表示されない
+        print(ray.direction);
         _sparkMuzzle.transform.position = _muzzle.transform.position;
 
 
